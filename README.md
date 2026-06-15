@@ -1,32 +1,22 @@
 # Gozango UI
 
-A React component library for the **Gozango Design System**, built with TypeScript and Tailwind CSS.
+A complete React component library for the **Gozango Design System**, built with TypeScript and Tailwind CSS. All colors, spacing, and radius values are pulled directly from the Gozango Figma variable collections.
 
 ---
 
-## Components
+## Components (29)
 
-| Component | Description |
-|-----------|-------------|
-| `Alert` | Inline contextual feedback messages |
-| `Avatar` + `AvatarGroup` | User profile images with fallback states |
-| `Badge` | Compact status labels and counts |
-| `Banner` | Full-width announcement strips |
-| `Breadcrumb` | Hierarchical path indicator |
-| `Button` | Primary interaction element — 6 variants, 4 sizes |
-| `Checkbox` | Single and group selection controls |
-| `EmptyState` | Placeholder UI for empty content areas |
-| `Input` | Text and file input fields |
-| `Overlay` | Scrim layer for modals and drawers |
-| `Progress` | Linear progress bar |
-| `RadioGroup` | Single-select radio button group |
-| `Separator` | Horizontal and vertical divider lines |
-| `Slider` | Single and range value selector |
-| `Switch` | Binary on/off toggle |
-| `Tabs` | Horizontal tab navigation |
-| `Textarea` | Multi-line text input |
-| `Toast` | Auto-dismissing notification snackbar |
-| `Tooltip` | Contextual hover hint label |
+### Actions & Inputs
+`Button` · `Input` · `Textarea` · `Checkbox` · `RadioGroup` · `Switch` · `Slider` · `Upload` · `Calendar`
+
+### Display & Feedback
+`Avatar` + `AvatarGroup` · `Badge` · `Alert` · `Banner` · `Toast` · `Tooltip` · `Progress` · `EmptyState`
+
+### Overlays
+`AlertDialog` · `PopupModal` · `Overlay`
+
+### Navigation & Layout
+`Header` · `Sidebar` (+ sub-components) · `Breadcrumb` · `Tabs` · `Separator` · `Card` (+ sub-components) · `Dropdown` (+ sub-components) · `DataTable`
 
 ---
 
@@ -34,22 +24,17 @@ A React component library for the **Gozango Design System**, built with TypeScri
 
 ```bash
 npm install gozango-ui
+npm install react react-dom         # peer dependencies
+npm install -D tailwindcss          # for styling
 ```
 
-Install peer dependencies if not already in your project:
-
-```bash
-npm install react react-dom
-npm install -D tailwindcss
-```
-
-Add the library to your `tailwind.config.js` content array so Tailwind picks up the classes:
+Add the library to your `tailwind.config.js` content array:
 
 ```js
 module.exports = {
   content: [
     './src/**/*.{ts,tsx}',
-    './node_modules/gozango-ui/src/**/*.{ts,tsx}', // ← add this
+    './node_modules/gozango-ui/src/**/*.{ts,tsx}',
   ],
 };
 ```
@@ -59,47 +44,73 @@ module.exports = {
 ## Usage
 
 ```tsx
-import { Button, Input, Badge, Toast } from 'gozango-ui';
+import { Button, Input, Card, CardHeader, CardTitle, CardContent } from 'gozango-ui';
 
 export default function Example() {
   return (
-    <div className="flex flex-col gap-4 p-8">
-      <Badge variant="default">New</Badge>
-
-      <Input
-        label="Email address"
-        placeholder="you@example.com"
-        helpText="We'll never share your email."
-      />
-
-      <Button variant="default" size="default">
-        Save changes
-      </Button>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>Sign in</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Input label="Email" placeholder="you@example.com" />
+        <Button variant="default" className="mt-4">Continue</Button>
+      </CardContent>
+    </Card>
   );
 }
+```
+
+### Compound components
+
+Several components use the compound pattern for flexibility:
+
+```tsx
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from 'gozango-ui';
+
+<Dropdown>
+  <DropdownTrigger><button>Menu ▾</button></DropdownTrigger>
+  <DropdownMenu>
+    <DropdownItem onSelect={...}>Profile</DropdownItem>
+    <DropdownItem destructive onSelect={...}>Log out</DropdownItem>
+  </DropdownMenu>
+</Dropdown>
+```
+
+### Generic DataTable
+
+```tsx
+import { DataTable } from 'gozango-ui';
+
+type User = { id: string; name: string; role: string };
+
+<DataTable<User>
+  data={users}
+  columns={[
+    { key: 'name', header: 'Name', sortable: true },
+    { key: 'role', header: 'Role' },
+  ]}
+  selectable
+/>
 ```
 
 ---
 
 ## Design Tokens
 
-Tokens are exported separately and map directly to the Gozango Figma variable collections:
+Tokens map 1:1 to the Gozango Figma variables, exported as typed objects:
 
 ```ts
-import { colors, spacing, radius } from 'gozango-ui/tokens';
+import { colors, spacing, radius, semantic } from 'gozango-ui/tokens';
 
-console.log(colors.brand[500]);  // '#00D123'
-console.log(spacing[4]);          // '16px'
-console.log(radius.lg);           // '8px'
+colors.brand[500]        // '#00D123'
+colors.ocean[600]        // '#155DFC'
+semantic.text.default    // '#1E2939'
+spacing[4]               // '16px'
+radius.lg                // '8px'
 ```
 
----
-
-## Figma Design System
-
-All components are built from the **Gozango Design System** Figma file.  
-The props, variants, and states in this library map 1:1 to the Figma component properties.
+**19 full color ramps** are available: brand, mist, ash, stone, crimson, ember, gold, sunbeam, zest, meadow, jade, lagoon, azure, ocean, dusk, iris, plum, magenta, blush, petal — each as a Tailwind color (e.g. `bg-ocean-500`, `text-jade-700`).
 
 ---
 
