@@ -1,0 +1,35 @@
+/**
+ * @file src/index.css
+ * @description Global stylesheet for the Gozango UI library.
+ *
+ * Imports:
+ * 1. Inter font from Google Fonts (matches the Figma design system typography)
+ * 2. Tailwind CSS base, components, and utilities
+ *
+ * This file must be imported in .storybook/preview.ts so all Tailwind
+ * utility classes work correctly inside Storybook stories.
+ */
+
+/* ── Inter font — matches Figma typography ─────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Tailwind CSS layers ────────────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base styles ────────────────────────────────────────────────────────────── */
+@layer base {
+  /* Apply Inter as the default font across all components */
+  * {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+  }
+
+  body {
+    color: #1E2939;        /* semantic.text.default */
+    background: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
