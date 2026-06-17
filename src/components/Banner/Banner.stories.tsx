@@ -1,5 +1,8 @@
 /**
  * @file Banner.stories.tsx
+ * @description Visual stories for the redesigned Banner component,
+ * matching the Figma structure: icon + title + description, plus a
+ * footer row of checklist items and a CTA link.
  */
 import type { Meta, StoryObj } from '@storybook/react';
 import { Banner } from './Banner';
@@ -12,12 +15,34 @@ const meta: Meta<typeof Banner> = {
 export default meta;
 type Story = StoryObj<typeof Banner>;
 
-export const Brand: Story = {
-  args: { variant: 'brand', message: '🎉 New feature: Try our AI-powered campaign builder today!', action: { label: 'Learn more', href: '#' } },
+/** Default banner matching the Figma "default" state exactly */
+export const Default: Story = {
+  args: {
+    title: 'Header',
+    description: 'This is the description of the title',
+    items: ['50+ Best Practices', '5 SEO Categories', 'Actionable Checklists'],
+    cta: { label: 'View SEO Playbook', href: '#' },
+  },
+  parameters: { layout: 'padded' },
 };
-export const Neutral: Story = {
-  args: { variant: 'neutral', message: 'Scheduled maintenance on June 20 from 2–4 AM UTC.' },
+
+/** Banner without the footer checklist row */
+export const TitleOnly: Story = {
+  args: {
+    title: 'Scheduled maintenance',
+    description: 'The platform will be briefly unavailable on June 20.',
+  },
+  parameters: { layout: 'padded' },
 };
-export const Warning: Story = {
-  args: { variant: 'warning', message: 'Your free trial ends in 3 days. Upgrade to keep access.' },
+
+/** Banner with a custom icon */
+export const CustomIcon: Story = {
+  args: {
+    icon: '🚀',
+    title: 'New feature available',
+    description: 'Try our AI-powered campaign builder today',
+    items: ['Free for all plans', 'No setup required'],
+    cta: { label: 'Try it now', href: '#' },
+  },
+  parameters: { layout: 'padded' },
 };
