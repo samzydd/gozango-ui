@@ -22,7 +22,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-/** Default filled brand-green button — use for primary actions only */
+/** Default filled positive-green button — use for primary actions only */
 export const Default: Story = {
   args: { variant: 'default', size: 'default', children: 'Save changes' },
 };
