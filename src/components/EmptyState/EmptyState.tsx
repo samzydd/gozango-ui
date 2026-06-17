@@ -66,7 +66,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
       {action && (
         <button
           onClick={action.onClick}
-          className="mt-1 inline-flex items-center gap-2 rounded-md bg-brand-500 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600 transition-colors"
+          className="mt-1 inline-flex items-center gap-2 rounded-md bg-meadow-600 px-4 py-2 text-sm font-medium text-white hover:bg-meadow-700 transition-colors"
         >
           {action.label}
         </button>
