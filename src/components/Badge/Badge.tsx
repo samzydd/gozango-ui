@@ -35,7 +35,7 @@ export interface BadgeProps extends BaseProps {
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  default:     'bg-brand-500 text-white',
+  default:     'bg-meadow-600 text-white',
   secondary:   'bg-stone-100 text-stone-700',
   outline:     'border border-stone-300 bg-transparent text-stone-700',
   destructive: 'bg-crimson-100 text-crimson-700',
