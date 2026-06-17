@@ -1,3 +1,7 @@
+/* Both @import statements must come first, with nothing but each other before them */
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /**
  * @file src/index.css
  * @description Global stylesheet for the Gozango UI library.
@@ -9,12 +13,6 @@
  * These values are pulled directly from the Gozango Figma variable
  * collections and match the resolved values in tokens.ts exactly.
  */
-
-/* ── Tailwind v4 base import ─────────────────────────────────────────────── */
-@import "tailwindcss";
-
-/* ── Inter font — matches Figma typography ───────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* ── Gozango Design Tokens ───────────────────────────────────────────────── */
 /* All values match the resolved Figma variable collections exactly.         */
