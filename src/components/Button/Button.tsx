@@ -59,7 +59,7 @@ export interface ButtonProps
 /** Tailwind classes per visual variant */
 const variantClasses: Record<ButtonType, string> = {
   default:
-    'bg-brand-500 text-white hover:bg-brand-600 focus-visible:ring-brand-500',
+    'bg-meadow-600 text-white hover:bg-meadow-700 focus-visible:ring-brand-500',
   secondary:
     'bg-stone-100 text-stone-800 hover:bg-stone-200 focus-visible:ring-stone-400',
   outline:
