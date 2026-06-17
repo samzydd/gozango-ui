@@ -50,10 +50,10 @@ export const Banner: React.FC<BannerProps> = ({
   >
     {/* Top section — icon, title, description */}
     <div className="flex items-start gap-3 p-6">
-      {/* Icon square — brand green, rounded */}
+      {/* Icon square — positive green, rounded */}
       <span
         aria-hidden="true"
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-500 text-white"
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-meadow-600 text-white"
       >
         {icon ?? '✦'}
       </span>
