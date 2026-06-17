@@ -59,7 +59,7 @@ export const Progress: React.FC<ProgressProps> = ({
       >
         {/* Fill — width driven by the clamped value */}
         <div
-          className="h-full rounded-full bg-brand-500 transition-all duration-300 ease-in-out"
+          className="h-full rounded-full bg-meadow-600 transition-all duration-300 ease-in-out"
           style={{ width: `${clamped}%` }}
         />
       </div>
