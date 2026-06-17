@@ -134,7 +134,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                 'flex h-9 w-9 items-center justify-center rounded-md text-sm transition-colors',
                 'disabled:opacity-30 disabled:pointer-events-none',
                 isSelected
-                  ? 'bg-brand-500 text-white font-semibold'
+                  ? 'bg-meadow-600 text-white font-semibold'
                   : isToday
                   ? 'bg-ash-100 text-ash-900 font-semibold'
                   : 'text-ash-700 hover:bg-ash-100',
