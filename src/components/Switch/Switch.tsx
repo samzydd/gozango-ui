@@ -66,7 +66,7 @@ export const Switch: React.FC<SwitchProps> = ({
           'relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center',
           'rounded-full border-2 border-transparent transition-colors duration-200',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2',
-          checked ? 'bg-brand-500' : 'bg-stone-200',
+          checked ? 'bg-meadow-600' : 'bg-stone-200',
           disabled ? 'cursor-not-allowed opacity-50' : '',
         ].join(' ')}
       >
