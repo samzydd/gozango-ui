@@ -108,7 +108,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = ({
               'inline-flex h-9 items-center rounded-md px-4 text-sm font-medium text-white transition-colors',
               destructive
                 ? 'bg-crimson-600 hover:bg-crimson-700'
-                : 'bg-brand-500 hover:bg-brand-600',
+                : 'bg-meadow-600 hover:bg-meadow-700',
             ].join(' ')}
           >
             {confirmLabel}
